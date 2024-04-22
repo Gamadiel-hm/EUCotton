@@ -1,9 +1,19 @@
 import { Outlet, Link } from "react-router-dom";
 import "./App.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { HubConnectionBuilder } from "@microsoft/signalr";
+import { Notification } from "./pages/notification/notification";
+
+interface Notification {
+  userName: string,
+  room: string,
+  message: string
+}
 
 function App() {
+  const [message, setMessage] = useState<Notification[]>([]);
+
+
   useEffect(() => {
     const conn = new HubConnectionBuilder()
       .withUrl("https://localhost:7163/api/notifications")
@@ -11,11 +21,16 @@ function App() {
 
     conn.start()
       .then(() => conn.invoke("JoinGroup", { userName: "Carlos", Room: "Beer", Message:"Join Group"}))
-      .then(() => console.log("Join group sucefully"))
+      .then(() => fetch("https://localhost:7163/Beer"))
+      .then((res) => res.json())
+      .then((data) => setMessage(data))
       .catch((error) => console.log(error.message));
 
     conn.on("JoinGroupMessage", (message: string) => console.log(message));
-    conn.on("groupMessage", (message: string) => console.log(message));
+    conn.on("groupMessage", (message: string, userName: string) => {
+      const newMessage: Notification = {message: message, room: "Beer", userName: userName}
+      setMessage((msg) => [...msg, newMessage])
+    });
 
   }, [])
   return (
@@ -32,6 +47,7 @@ function App() {
         <h3>App Front EuCotton</h3>
       </header>
       <Outlet />
+      <Notification message={message} />
     </>
   );
 }

@@ -1,11 +1,23 @@
 
-interface Props {
+interface Notification {
+    userName: string,
+  room: string,
+  message: string
 }
 
-export const Notification: React.FC<Props> = () => {
+interface Props {
+    message: Notification[]
+}
+
+export const Notification: React.FC<Props> = ({message}) => {
     return(
         <>
-            <h2>Notification App</h2>
+            {message.map((msg, index) => (
+                <div key={index}>
+                    <h3>{msg.userName}</h3>
+                    <h3>{msg.message}</h3>
+                </div>
+            ) )}
         </>
     )
 }
