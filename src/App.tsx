@@ -1,24 +1,21 @@
 import { Outlet } from "react-router-dom";
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { HubConnectionBuilder } from "@microsoft/signalr";
 import { useNotificationStore } from "./context/notification.store";
 import { Notification } from "./pages/notification/notification.d";
 import { useJoinGroup } from "./context/joinGroup.store";
 
 function App() {
-  const [newGroupState, setNewGroupState] = useState<string>();
   const setNewNotification = useNotificationStore(
     (state) => state.setNotificationOne
   );
-  const newGRoup = useJoinGroup(state => state.joinGroup)
-
+  const newGRoup = useJoinGroup((state) => state.joinGroup);
+  
   useEffect(() => {
     const conn = new HubConnectionBuilder()
       .withUrl(import.meta.env.VITE_BASE_URL_HUB)
       .build();
-
-    setNewGroupState(group => group = newGRoup)
 
     conn
       .start()
@@ -43,9 +40,8 @@ function App() {
         location: "",
       };
       setNewNotification(newMessage);
-      console.log("new message");
     });
-  }, [newGroupState]);
+  }, [newGRoup]);
   return (
     <>
       <Outlet />

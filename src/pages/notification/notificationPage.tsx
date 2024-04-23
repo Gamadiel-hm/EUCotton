@@ -11,13 +11,13 @@ export const NotificationPage: React.FC = () => {
     (state) => state.notificationList
   );
   const setNotificationAll = useNotificationStore((state) => state.setNotificationAll);
-  const newGroup = useJoinGroup(state => state.setJoinGroup)
+  const newGroup = useJoinGroup(state => state.setJoinGroup);
 
   useEffect(() => {
-    newGroup(room ?? "");
     fetch(import.meta.env.VITE_BASE_URL_SIGNALS + room)
     .then(res => res.json())
-    .then(data => setNotificationAll(data))
+    .then(data => setNotificationAll(data));
+    newGroup(room ?? "");
   }, []);
 
   return (
