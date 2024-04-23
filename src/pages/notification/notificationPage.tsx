@@ -3,15 +3,18 @@ import { useNotificationStore } from "../../context/notification.store";
 import { EmailCard } from "./components/emailCard";
 import "./notificationPage.css";
 import { useEffect } from "react";
+import { useJoinGroup } from "../../context/joinGroup.store";
 
 export const NotificationPage: React.FC = () => {
+  const {user, room} = useParams();
   const addNotification = useNotificationStore(
     (state) => state.notificationList
   );
   const setNotificationAll = useNotificationStore((state) => state.setNotificationAll);
+  const newGroup = useJoinGroup(state => state.setJoinGroup)
 
-  const {user, room} = useParams();
   useEffect(() => {
+    newGroup(room ?? "");
     fetch(import.meta.env.VITE_BASE_URL_SIGNALS + room)
     .then(res => res.json())
     .then(data => setNotificationAll(data))
