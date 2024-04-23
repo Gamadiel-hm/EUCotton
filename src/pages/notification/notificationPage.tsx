@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import { useNotificationStore } from "../../context/notification.store";
 import { EmailCard } from "./components/emailCard";
 import "./notificationPage.css";
@@ -8,6 +9,9 @@ export const NotificationPage: React.FC<Props> = () => {
   const addNotification = useNotificationStore(
     (state) => state.notificationList
   );
+
+  const params = useParams();
+  console.log(params);
 
   return (
     <>

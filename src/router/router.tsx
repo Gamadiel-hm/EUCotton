@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import {Routes_Public} from "./routerConst"
+import {Routes_Public} from "./routerConst";
 
 export const router = createBrowserRouter([
     {
@@ -12,13 +12,13 @@ export const router = createBrowserRouter([
       },
       children: [
         {
-          path: Routes_Public.notification,
+          path: `${Routes_Public.notification}/:user/:room`,
           async lazy() {
             let {NotificationPage} = await import("../pages/notification/notificationPage");
             return {
               Component: NotificationPage
             }
-          }
+          },
         }
       ]
     },
