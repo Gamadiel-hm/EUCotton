@@ -6,19 +6,16 @@ import { useNotificationStore } from "./context/notification.store";
 import { Notification } from "./pages/notification/notification.d";
 
 function App() {
-  const setArrayNotification = useNotificationStore(state => state.setNotificationAll);
   const setNewNotification = useNotificationStore(state => state.setNotificationOne);
 
   useEffect(() => {
     const conn = new HubConnectionBuilder()
-      .withUrl("https://localhost:7163/api/notifications")
+      .withUrl(import.meta.env.VITE_BASE_URL_HUB)
       .build();
 
     conn.start()
       .then(() => conn.invoke("JoinGroup", { userName: "Carlos", Room: "Beer", Message:"Join Group"}))
-      .then(() => fetch("https://localhost:7163/Beer"))
-      .then((res) => res.json())
-      .then((data) => setArrayNotification(data))
+      .then(() => console.log("Join Group"))
       .catch((error) => console.log(error.message));
 
     conn.on("JoinGroupMessage", (message: string) => console.log(message));
