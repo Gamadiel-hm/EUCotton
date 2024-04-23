@@ -1,11 +1,14 @@
 import { create } from 'zustand'
+import {type NotificationList, Notification} from "../pages/notification/notification.d"
 
-interface BearState {
-  bears: number
-  increase: (by: number) => void
+interface StoreNotification  {
+  notificationList: NotificationList,
+  setNotificationAll: (notificationArray: NotificationList) => void,
+  setNotificationOne: (notification: Notification) => void
 }
 
-const useBearStore = create<BearState>()((set) => ({
-  bears: 0,
-  increase: (by) => set((state) => ({ bears: state.bears + by })),
+export const useNotificationStore = create<StoreNotification>()((set) => ({
+  notificationList: [],
+  setNotificationAll: (notificationArray: NotificationList) => set({notificationList: notificationArray}),
+  setNotificationOne: (notification: Notification) => set(state => ({notificationList: [...state.notificationList, notification]}))
 }))

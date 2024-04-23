@@ -1,0 +1,54 @@
+:root {
+    --background-card1: #b3bfc9;
+    --background-card2: #d5dce298;
+    --buttonBackground-email: black;
+    --buttonColor-email: white;
+}
+
+.container-card-email {
+    border-radius: .25rem;
+    padding: .8rem;
+    margin-bottom: .6rem;
+}
+
+.header-card-email {
+    font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+    margin-bottom: .2rem;
+}
+
+.subHeader-card-email {
+    font-size: clamp(.7rem, 2.5vw, 1.2rem);
+    margin-bottom: .2rem;
+}
+
+.body-card-email {
+    font-size: clamp(.6rem, 2.5vw, .85rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: .6rem;
+
+}
+
+.footer-card-email{
+    display: flex;
+    justify-content: start;
+    gap: .5rem;
+}
+
+.footer-card-email button {
+    padding: .3rem .6rem;
+    border-radius: .4rem;
+    font-size: clamp(.7rem, 2.5vw, .75rem);
+    background-color: var(--buttonBackground-email);
+    color: var(--buttonColor-email);
+}
+
+.view {
+    background-color: var(--background-card1);
+}
+
+.noView {
+    background-color: var(--background-card2);
+}
+

@@ -14,9 +14,9 @@ export const router = createBrowserRouter([
         {
           path: Routes_Public.notification,
           async lazy() {
-            let {Notification} = await import("../pages/notification/notification");
+            let {NotificationPage} = await import("../pages/notification/notificationPage");
             return {
-              Component: Notification
+              Component: NotificationPage
             }
           }
         }
