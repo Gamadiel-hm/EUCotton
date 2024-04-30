@@ -18,10 +18,7 @@ export const NotificationPage: React.FC = () => {
   useEffect(() => {
     fetch(import.meta.env.VITE_BASE_URL_SIGNALS + roomId)
       .then((res) => res.json())
-      .then((data) => {
-        setNotificationAll(data.data);
-        console.log(data.data);
-      })
+      .then((data) => setNotificationAll(data.data))
       .catch((error) => console.log(error));
     newGroup(room ?? "");
   }, []);

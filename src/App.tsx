@@ -3,9 +3,8 @@ import "./App.css";
 import { useEffect } from "react";
 import { HubConnectionBuilder } from "@microsoft/signalr";
 import { useNotificationStore } from "./context/notification.store";
-import { Notification } from "./pages/notification/types/notification";
+import { NotificationFetch } from "./pages/notification/types/notification";
 import { useJoinGroup } from "./context/joinGroup.store";
-import { convertType } from "./pages/notification/helper/convertType";
 
 function App() {
   const setNewNotification = useNotificationStore(
@@ -31,11 +30,9 @@ function App() {
       .catch((error) => console.log(error.message));
 
     conn.on("JoinGroupMessage", (message: string) => console.log(message));
-    conn.on("groupMessage", (newNotification: Notification) => {
-      console.log(newNotification);
-      //setNewNotification(newMessage);
+    conn.on("groupMessage", (newNotification: NotificationFetch) => {
+      setNewNotification(newNotification);
     });
-    console.log(convertType(1));
   }, [newGRoup]);
   return (
     <>
