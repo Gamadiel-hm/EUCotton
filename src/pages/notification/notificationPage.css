@@ -1,65 +1,26 @@
 :root {
-    --maxWidth-email: 800px;
-    --border-email: 1px solid #0000005d;
-    --padding-container: .4rem;
-    --maxWidth-card: 300px;
-    --maxHeight-card: 500px;
-    --background-fullEmail: #c3f8f8c0;
-    --borderRadius-email: .6rem;
+  --maxWidth-email: 800px;
+  --border-email: 1px solid #0000005d;
+  --padding-container: 0.4rem;
+  --maxWidth-card: 350px;
+  --maxHeight-card: 500px;
+  --background-fullEmail: #c3f8f8c0;
+  --borderRadius-email: 0.6rem;
+  --marginX: 0.4rem 0 0.4rem 0;
+  --marginCenter: 0 auto;
 }
 
 .container-email {
-    max-width: var(--maxWidth-email);
-    display: flex;
-    margin: 0 auto;
+  max-width: var(--maxWidth-email);
+  margin: var(--marginCenter);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.7rem;
 }
 
 .title-email {
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.container-email-card{
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    padding-right: var(--padding-container);
-    padding-top: var(--padding-container);
-    max-height: var(--maxHeight-card);
-}
-
-.container-email-card::-webkit-scrollbar {
-    display: none;
-}
-
-.container-mailView {
-    border-top: var(--border-email);
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    background-color: var(--background-fullEmail);
-    display: none;
-}
-
-.container-mailView-container {
-    padding-left: var(--padding-container);
-    padding-top: var(--padding-container);
-    border-radius: var(--borderRadius-email);
-}
-
-
-@media (min-width: 500px) {
-
-
-    .container-mailView{
-        display: block;
-    }
-
-    .container-email-card{
-        max-width: var(--maxWidth-card);
-        border-right: var(--border-email);
-        border-top: var(--border-email);
-        overflow-y: auto;
-    }
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
 }

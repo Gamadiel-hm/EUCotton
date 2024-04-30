@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import {type NotificationList, Notification} from "../pages/notification/notification.d"
+import {type NotificationList, Notification} from "../pages/notification/types/notification"
 
 interface StoreNotification  {
   notificationList: NotificationList,

@@ -1,54 +1,92 @@
 :root {
-    --background-card1: #b3bfc9;
-    --background-card2: #d5dce298;
-    --buttonBackground-email: black;
-    --buttonColor-email: white;
+  --background-card1: #b3bfc9;
+  --background-card2: #d5dce298;
+  --buttonBackground-email: black;
+  --buttonColor-email: white;
+  --paddingY: 0.8rem 0 0.8rem 0;
+  --paddingX: 0 0.8rem 0 0.8rem;
+
+  --cardSuccess: #7df895;
+  --cardError: #ff5d5d;
+  --cardWarning: #fca73b;
+  --cardInfo: #3eaef2;
+  --colorCard: #000;
+}
+
+.container-card-email.success {
+  background-color: var(--cardSuccess);
+}
+
+.container-card-email.warning {
+  background-color: var(--cardWarning);
+}
+
+.container-card-email.info {
+  background-color: var(--cardInfo);
+}
+.container-card-email.error {
+  background-color: var(--cardError);
 }
 
 .container-card-email {
-    border-radius: .25rem;
-    padding: .8rem;
-    margin-bottom: .6rem;
+  color: var(--colorCard);
+  padding: var(--paddingY);
+  border-radius: var(--borderRadius-email);
+  max-width: var(--maxWidth-card);
+  width: 100%;
+  margin: var(--marginCenter);
+
+  animation: aperture;
+  animation-duration: 400ms;
+  animation-timing-function: ease-out;
 }
 
 .header-card-email {
-    font-size: clamp(1.2rem, 2.5vw, 1.4rem);
-    margin-bottom: .2rem;
-}
-
-.subHeader-card-email {
-    font-size: clamp(.7rem, 2.5vw, 1.2rem);
-    margin-bottom: .2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 1px solid #000;
+  padding: var(--paddingX);
+  margin-bottom: 0.4rem;
+  align-items: center;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
 }
 
 .body-card-email {
-    font-size: clamp(.6rem, 2.5vw, .85rem);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-bottom: .6rem;
-
+  display: flex;
+  align-items: center;
+  padding: var(--paddingX);
+  gap: 0.7rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
 }
 
-.footer-card-email{
-    display: flex;
-    justify-content: start;
-    gap: .5rem;
+.body-card-email > .svg-icon {
+  color: #3b3c3e;
 }
 
-.footer-card-email button {
-    padding: .3rem .6rem;
-    border-radius: .4rem;
-    font-size: clamp(.7rem, 2.5vw, .75rem);
-    background-color: var(--buttonBackground-email);
-    color: var(--buttonColor-email);
+.truncate {
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.view {
-    background-color: var(--background-card1);
+@media (min-width: 500px) {
+  :root {
+    --maxWidth-card: 400px;
+  }
+
+  .container-card-email {
+    max-width: var(--maxWidth-card);
+  }
 }
 
-.noView {
-    background-color: var(--background-card2);
+@keyframes aperture {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
-

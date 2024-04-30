@@ -1,30 +1,31 @@
 import "./emailCard.css";
-import { NotificationList } from "../notification.d";
+import { Notification } from "../types/notification";
+import { NotificationIcon } from "./notificationIcon";
 
-interface Props {
-  notificationList: NotificationList;
-}
+interface Props extends Notification {}
 
-export const EmailCard: React.FC<Props> = ({ notificationList }) => {
+export const EmailCard: React.FC<Props> = ({
+  date,
+  group,
+  sendMessage,
+  userId,
+  userName,
+  type,
+}) => {
   return (
     <>
-      {notificationList.map((notification, index) => {
-        const classView = index % 2 ? "noView" : "view";
-        return (
-          <div className={"container-card-email " + classView} key={index}>
-          <div className="header-card-email">{notification.userName}</div>
-          <div className="subHeader-card-email">{notification.group}</div>
-          <div className="body-card-email">
-            {notification.message}
-          </div>
-          <div className="footer-card-email">
-            <button className="email">low</button>
-            <button className="email">medium</button>
-            <button className="email">Important</button>
-          </div>
+      <div className={`container-card-email ${type}`}>
+        <div className="header-card-email">
+          <p>{userName}</p>
+          <p>{date.toString()}</p>
         </div>
-        )
-      })}
+        <div className="body-card-email">
+          <div className="svg-icon">
+            <NotificationIcon nameIcon={type} />
+          </div>
+          <p className="truncate">{sendMessage}</p>
+        </div>
+      </div>
     </>
   );
 };

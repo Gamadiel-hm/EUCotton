@@ -13,9 +13,10 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
-  min-width: 100%;
+  width: 100%;
   min-height: 100vh;
   padding-top: 2rem;
+  background-color: #d3cece;
 }
 button {
   outline: none;
