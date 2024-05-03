@@ -17,10 +17,15 @@
   flex-direction: column;
   flex-grow: 1;
   gap: 0.7rem;
+  margin-bottom: 2rem;
 }
 
 .title-email {
   margin-bottom: 2rem;
   text-align: center;
   font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+}
+
+infinityScroll {
+  min-height: 2rem;
 }

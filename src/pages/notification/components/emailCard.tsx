@@ -12,12 +12,19 @@ export const EmailCard: React.FC<Props> = ({
   userName,
   type,
 }) => {
+  const arrayDate = date.toString().split("T");
+  const dateClean =
+    arrayDate[0].toString() + " " + arrayDate[1].split(":", 2).join(":");
   return (
     <>
       <div className={`container-card-email ${type}`}>
         <div className="header-card-email">
-          <p>{userName}</p>
-          <p>{date.toString()}</p>
+          <p>
+            {userName} - {group}
+          </p>
+          <p>
+            {dateClean} - {userId}
+          </p>
         </div>
         <div className="body-card-email">
           <div className="svg-icon">

@@ -20,6 +20,13 @@ export interface NotificationFetch {
   //location: string
 }
 
+export interface ResponseApi<T> {
+  succeeded: boolean;
+  message: string;
+  errors: string[];
+  data: T;
+}
+
 export type NotificationList = Notification[];
 export type notificationType =
   (typeof TYPE_NOTIFICATION)[keyof typeof TYPE_NOTIFICATION];
