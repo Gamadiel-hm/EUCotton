@@ -8,12 +8,16 @@ import {
 import { convertType } from "../pages/notification/helper/convertType.ts";
 
 interface StoreNotification {
+  page: number;
+  newPage: () => void;
   notificationList: NotificationList;
   setNotificationAll: (notificationArray: notificationFetch) => void;
   setNotificationOne: (notification: NotificationFetch) => void;
 }
 
 export const useNotificationStore = create<StoreNotification>()((set) => ({
+  page: 1,
+  newPage: () => set((state) => ({ page: state.page + 1 })),
   notificationList: [],
   setNotificationAll: (notificationArray: notificationFetch) => {
     const mapDate: NotificationList = notificationArray.map((msg) => {
@@ -28,7 +32,9 @@ export const useNotificationStore = create<StoreNotification>()((set) => ({
 
       return notificationListAdd;
     });
-    set({ notificationList: mapDate });
+    set((state) => ({
+      notificationList: [...state.notificationList, ...mapDate],
+    }));
   },
   setNotificationOne: (notification: NotificationFetch) => {
     const notificationAdd: Notification = {
