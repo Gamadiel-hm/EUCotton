@@ -1,12 +1,12 @@
-import { TYPE_NOTIFICATION } from "./notification.const";
-import { OBJECT_RETURN_STRING } from "../helper/convertType.ts";
+import { objectString } from "../helper/convertType";
+import { FILTER_NOTIFICATION, TYPE_NOTIFICATION } from "./notification.const";
 
 export interface Notification {
   userId: string;
   userName: string;
   sendMessage: string;
   type: notificationType;
-  group: int;
+  //group: int;
   date: Date;
   //location: string
 }
@@ -20,15 +20,16 @@ export interface NotificationFetch {
   //location: string
 }
 
-export interface ResponseApi<T> {
-  succeeded: boolean;
-  message: string;
-  errors: string[];
-  data: T;
-}
+type KeysMatching<T, V> = {
+  [K in keyof T]: T[K] extends V ? K : never;
+}[keyof T];
 
 export type NotificationList = Notification[];
 export type notificationType =
   (typeof TYPE_NOTIFICATION)[keyof typeof TYPE_NOTIFICATION];
-export type objectType = keyof OBJECT_RETURN_STRING;
 export type notificationFetch = NotificationFetch[];
+type NotificationKeys = KeysMatching<typeof objectString, string>;
+
+// type filters
+export type notificationTypeFilter =
+  (typeof FILTER_NOTIFICATION)[keyof typeof FILTER_NOTIFICATION];

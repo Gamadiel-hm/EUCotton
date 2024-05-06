@@ -6,25 +6,22 @@ interface Props extends Notification {}
 
 export const EmailCard: React.FC<Props> = ({
   date,
-  group,
   sendMessage,
-  userId,
   userName,
   type,
 }) => {
   const arrayDate = date.toString().split("T");
   const dateClean =
-    arrayDate[0].toString() + " " + arrayDate[1].split(":", 2).join(":");
+    arrayDate[0].toString() +
+    " " +
+    arrayDate[1].split(":", 2).join(":") +
+    " hrs.";
   return (
     <>
       <div className={`container-card-email ${type}`}>
         <div className="header-card-email">
-          <p>
-            {userName} - {group}
-          </p>
-          <p>
-            {dateClean} - {userId}
-          </p>
+          <p>{userName}</p>
+          <p>{dateClean}</p>
         </div>
         <div className="body-card-email">
           <div className="svg-icon">

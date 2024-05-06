@@ -1,0 +1,30 @@
+.filters {
+  display: flex;
+  flex-grow: 1;
+  gap: 0.3rem;
+}
+
+.filters select {
+  width: 100%;
+  padding: var(--padding-container);
+  font-size: clamp(0.5rem, 2vw, 1rem);
+  border-radius: var(--borderRadius-email);
+  background: none;
+  color: var(--color);
+  outline: none;
+}
+
+.filters select option {
+  background-color: #dbd3d3cc;
+  border: var(--border-email);
+  border-radius: 0.45rem;
+  color: var(--color);
+}
+
+.search-filter {
+  background: none;
+  border: var(--border-email);
+  border-radius: var(--borderRadius-email);
+  outline: none;
+  padding-left: 0.35rem;
+}

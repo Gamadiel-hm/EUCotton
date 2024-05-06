@@ -52,6 +52,10 @@
   font-size: clamp(0.9rem, 2.5vw, 1.2rem);
 }
 
+.header-card-email > p:last-child {
+  font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+}
+
 .body-card-email {
   display: flex;
   align-items: center;

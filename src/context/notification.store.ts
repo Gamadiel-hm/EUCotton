@@ -23,7 +23,7 @@ export const useNotificationStore = create<StoreNotification>()((set) => ({
     const mapDate: NotificationList = notificationArray.map((msg) => {
       const notificationListAdd: Notification = {
         date: msg.date,
-        group: msg.group,
+        //group: msg.group,
         sendMessage: msg.sendMessage,
         userId: msg.userId,
         userName: msg.userId,
@@ -39,7 +39,7 @@ export const useNotificationStore = create<StoreNotification>()((set) => ({
   setNotificationOne: (notification: NotificationFetch) => {
     const notificationAdd: Notification = {
       date: notification.date,
-      group: notification.group,
+      //group: notification.group,
       sendMessage: notification.sendMessage,
       userId: notification.userId,
       userName: notification.userId,
