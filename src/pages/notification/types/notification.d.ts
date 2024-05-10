@@ -2,19 +2,21 @@ import { objectString } from "../helper/convertType";
 import { FILTER_NOTIFICATION, TYPE_NOTIFICATION } from "./notification.const";
 
 export interface Notification {
-  userId: string;
-  userName: string;
+  messageId: int;
+  userInfoId: int;
+  roomAreaId: int;
   sendMessage: string;
   type: notificationType;
+  isView: boolean;
+  userCreate: string;
   //group: int;
   date: Date;
   //location: string
 }
 export interface NotificationFetch {
   messageId: int;
-  userInfoId: string;
+  userInfoId: int;
   roomAreaId: int;
-  userName: string;
   sendMessage: string;
   type: objectType;
   isView: boolean;

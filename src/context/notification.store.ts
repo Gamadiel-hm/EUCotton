@@ -25,9 +25,12 @@ export const useNotificationStore = create<StoreNotification>()((set) => ({
         date: msg.date,
         //group: msg.group,
         sendMessage: msg.sendMessage,
-        userId: msg.userId,
-        userName: msg.userId,
+        userInfoId: msg.userInfoId,
         type: convertType(msg.type),
+        isView: msg.isView,
+        messageId: msg.messageId,
+        roomAreaId: msg.roomAreaId,
+        userCreate: msg.userCreate,
       };
 
       return notificationListAdd;
@@ -41,9 +44,12 @@ export const useNotificationStore = create<StoreNotification>()((set) => ({
       date: notification.date,
       //group: notification.group,
       sendMessage: notification.sendMessage,
-      userId: notification.userId,
-      userName: notification.userId,
+      userInfoId: notification.userInfoId,
       type: convertType(notification.type),
+      isView: notification.isView,
+      messageId: notification.messageId,
+      roomAreaId: notification.roomAreaId,
+      userCreate: notification.userCreate,
     };
     set((state) => ({
       notificationList: [notificationAdd, ...state.notificationList],

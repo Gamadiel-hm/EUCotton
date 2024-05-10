@@ -5,12 +5,16 @@ import "./notificationPage.css";
 import { useFetch } from "./hooks/useFetch";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Filters } from "./components/filters";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { notificationTypeFilter } from "./types/notification";
+import { Modal } from "./components/modal";
+import { fetchView } from "./components/fetchView";
 
 export const NotificationPage: React.FC = () => {
   const [filterState, setFilterState] = useState<notificationTypeFilter>("all");
   const [searchFilter, setSearchFilter] = useState<string>("");
+  const [clickModal, setClickModal] = useState<boolean>(false);
+  const refGetUserIf = useRef<number>(0);
   const { userId, room, roomId } = useParams();
   useFetch(userId ?? "", roomId ?? "", 6, room ?? "");
 
@@ -29,6 +33,16 @@ export const NotificationPage: React.FC = () => {
       : filter.filter((Notification) =>
           Notification.sendMessage.toLowerCase().includes(searchFilter)
         );
+
+  const clickNotificationFilter = search.filter(
+    (f) => f.messageId === refGetUserIf.current
+  )[0];
+
+  refGetUserIf.current &&
+    fetchView(
+      clickNotificationFilter.messageId,
+      clickNotificationFilter.userInfoId
+    );
 
   return (
     <>
@@ -55,14 +69,33 @@ export const NotificationPage: React.FC = () => {
               date={notify.date}
               //group={room}
               sendMessage={notify.sendMessage}
-              userName={notify.userId}
-              userId={notify.userId}
+              userInfoId={notify.userInfoId}
               type={notify.type}
+              clickModal={setClickModal}
+              userRef={refGetUserIf}
+              isView={notify.isView}
+              messageId={notify.messageId}
+              roomAreaId={notify.roomAreaId}
+              userCreate={notify.userCreate}
               key={index}
             />
           ))}
         </section>
       </InfiniteScroll>
+      <Modal closeModal={setClickModal} statusModal={clickModal}>
+        <>
+          {refGetUserIf.current !== 0 ? (
+            <div className="modal-header">
+              <div>{clickNotificationFilter.roomAreaId}</div>
+              <div>{clickNotificationFilter.sendMessage}</div>
+              <div>{clickNotificationFilter.isView}</div>
+              <div>{clickNotificationFilter.userCreate}</div>
+            </div>
+          ) : (
+            <></>
+          )}
+        </>
+      </Modal>
     </>
   );
 };
