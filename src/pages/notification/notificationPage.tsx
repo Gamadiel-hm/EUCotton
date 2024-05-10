@@ -11,8 +11,8 @@ import { notificationTypeFilter } from "./types/notification";
 export const NotificationPage: React.FC = () => {
   const [filterState, setFilterState] = useState<notificationTypeFilter>("all");
   const [searchFilter, setSearchFilter] = useState<string>("");
-  const { room, roomId } = useParams();
-  useFetch(roomId ?? "", 6, room ?? "");
+  const { userId, room, roomId } = useParams();
+  useFetch(userId ?? "", roomId ?? "", 6, room ?? "");
 
   const { notificationList, newPage } = useNotificationStore((state) => state);
 
@@ -27,7 +27,7 @@ export const NotificationPage: React.FC = () => {
     searchFilter === ""
       ? filter
       : filter.filter((Notification) =>
-          Notification.sendMessage.includes(searchFilter)
+          Notification.sendMessage.toLowerCase().includes(searchFilter)
         );
 
   return (
@@ -53,7 +53,7 @@ export const NotificationPage: React.FC = () => {
           {search.map((notify, index) => (
             <EmailCard
               date={notify.date}
-              group={room}
+              //group={room}
               sendMessage={notify.sendMessage}
               userName={notify.userId}
               userId={notify.userId}

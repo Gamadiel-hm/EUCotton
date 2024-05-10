@@ -2,7 +2,12 @@ import { useEffect } from "react";
 import { useNotificationStore } from "../../../context/notification.store";
 import { useJoinGroup } from "../../../context/joinGroup.store";
 
-export const useFetch = (roomId: string, items: number, room: string) => {
+export const useFetch = (
+  userId: string,
+  roomId: string,
+  items: number,
+  room: string
+) => {
   const setNotificationAll = useNotificationStore(
     (state) => state.setNotificationAll
   );
@@ -13,6 +18,8 @@ export const useFetch = (roomId: string, items: number, room: string) => {
   useEffect(() => {
     fetch(
       import.meta.env.VITE_BASE_URL_SIGNALS +
+        userId +
+        "/" +
         roomId +
         `/options?page=${page}&items=${items}`
     )

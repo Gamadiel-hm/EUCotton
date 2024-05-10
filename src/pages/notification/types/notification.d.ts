@@ -11,11 +11,14 @@ export interface Notification {
   //location: string
 }
 export interface NotificationFetch {
-  userId: string;
+  messageId: int;
+  userInfoId: string;
+  roomAreaId: int;
   userName: string;
   sendMessage: string;
   type: objectType;
-  group: int;
+  isView: boolean;
+  userCreate: string;
   date: Date;
   //location: string
 }
