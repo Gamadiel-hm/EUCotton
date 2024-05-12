@@ -12,7 +12,7 @@ export const router = createBrowserRouter([
     },
     children: [
       {
-        path: `${Routes_Public.notification}/:room/:roomId`,
+        path: `${Routes_Public.notification}/:userId/:room/:roomId`,
         async lazy() {
           let { NotificationPage } = await import(
             "../pages/notification/notificationPage"

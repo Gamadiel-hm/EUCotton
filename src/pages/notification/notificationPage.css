@@ -2,12 +2,13 @@
   --maxWidth-email: 800px;
   --border-email: 1px solid #0000005d;
   --padding-container: 0.4rem;
-  --maxWidth-card: 350px;
+  --maxWidth-card: 400px;
   --maxHeight-card: 500px;
   --background-fullEmail: #c3f8f8c0;
   --borderRadius-email: 0.6rem;
   --marginX: 0.4rem 0 0.4rem 0;
   --marginCenter: 0 auto;
+  --marginBottom: 2rem;
 }
 
 .container-email {
@@ -16,11 +17,23 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  gap: 0.7rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .title-email {
-  margin-bottom: 2rem;
+  margin-bottom: var(--marginBottom);
   text-align: center;
   font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+}
+
+.filters {
+  max-width: var(--maxWidth-card);
+  margin: var(--marginCenter);
+  margin-bottom: var(--marginBottom);
+}
+
+.element-infinityScroll {
+  max-width: var(--maxHeight-card);
+  margin: var(--marginCenter);
 }
