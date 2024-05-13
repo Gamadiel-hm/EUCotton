@@ -32,7 +32,7 @@
   --colorCard: #5d5d5d;
 
   /* Email card */
-  --maxWidth-email: 500px;
+  --maxWidth-email: 450px;
   --border-email: 1px solid #534f4f5d;
   --padding-container: 0.4rem;
   --maxWidth-card: 400px;

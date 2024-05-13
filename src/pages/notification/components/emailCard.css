@@ -98,9 +98,10 @@
 }
 
 .button-actions:hover {
-  color: var(--color-card);
+  color: var(--color-icon-email);
   box-shadow: none;
-  border-color: var(--color-card);
+  border-color: var(--color-icon-email);
+  cursor: pointer;
 }
 
 .blinkerUp {
