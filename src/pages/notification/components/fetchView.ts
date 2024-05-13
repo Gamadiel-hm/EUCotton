@@ -1,21 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from 'react';
 
-export const fetchView = (messageId: number, userId: number) => {
-  const [fetchStatus, setFetchStatus] = useState<boolean>(false);
+export const fetchView = (
+  messageId: number,
+  userId: number,
+  refState: React.RefObject<number>
+) => {
+  const refView = useRef<boolean>(false);
   useEffect(() => {
-    fetch(
-      import.meta.env.VITE_BASE_URL_API +
-        "messageuserinfo?" +
-        `messageId=${messageId}` +
-        "/" +
-        `userInfoId=${userId}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setFetchStatus(data.data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+    if (refState.current !== 0) {
+      fetch(
+        import.meta.env.VITE_BASE_URL_API +
+          'messageuserinfo?' +
+          `messageId=${messageId}` +
+          '&' +
+          `userInfoId=${userId}`,
+        { method: 'Put' }
+      )
+        .then(res => res.json())
+        .then(data => {
+          data ? (refView.current = true) : (refView.current = false);
+        })
+        .catch(error => console.log(error));
+    }
+  }, [refState.current]);
 
-  return { fetchStatus };
+  return { refView };
 };

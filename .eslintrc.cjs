@@ -4,13 +4,16 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
+    'plugin:react-hooks/recommended'
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    'react-refresh/only-export-components': [
+      'warn',
+      { allowConstantExport: true }
+    ],
     semi: ['error', 'always'],
     'react/react-in-jsx-scope': 'off',
     'space-before-function-paren': [
@@ -32,7 +35,7 @@ module.exports = {
       }
     ],
     'react/prop-types': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'error',
+    '@typescript-eslint/explicit-function-return-type': 'none',
     'comma-dangle': ['error', 'never']
-  },
-}
+  }
+};

@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --background-card1: #b3bfc9;
   --background-card2: #d5dce298;
   --buttonBackground-email: black;
@@ -11,7 +11,7 @@
   --cardWarning: #fca73b;
   --cardInfo: #3eaef2;
   --colorCard: #000;
-}
+} */
 
 .container-card-email.success {
   background-color: var(--cardSuccess);
@@ -29,7 +29,6 @@
 }
 
 .container-card-email {
-  color: var(--colorCard);
   padding: var(--paddingY);
   border-radius: var(--borderRadius-email);
   max-width: var(--maxWidth-card);
@@ -45,7 +44,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  border-bottom: 1px solid #000;
+  border-bottom: var(--border-email);
   padding: var(--paddingX);
   margin-bottom: 0.4rem;
   align-items: center;
@@ -71,8 +70,8 @@
   font-size: clamp(0.9rem, 2.5vw, 1rem);
 }
 
-.body-card-email > .svg-icon {
-  color: #3b3c3e;
+.body-card-email div > .svg-icon {
+  color: var(--color-icon-email);
 }
 
 .truncate {
@@ -85,7 +84,16 @@
   width: 4.5rem;
   padding: 0.1rem 0.2rem;
   border-radius: 0.2rem;
-  border-color: #464141;
+  transition: color var(--transition1), box-shadow var(--transition1),
+    border-color var(--transition1);
+  border-color: var(--buttonBackground-email);
+  box-shadow: var(--box-shadow1);
+}
+
+.button-actions:hover {
+  color: var(--buttonColor-email);
+  box-shadow: none;
+  border-color: var(--buttonColor-email);
 }
 
 @media (min-width: 500px) {

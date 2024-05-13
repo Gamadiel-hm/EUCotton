@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --maxWidth-email: 800px;
   --border-email: 1px solid #0000005d;
   --padding-container: 0.4rem;
@@ -9,7 +9,7 @@
   --marginX: 0.4rem 0 0.4rem 0;
   --marginCenter: 0 auto;
   --marginBottom: 2rem;
-}
+} */
 
 .container-email {
   max-width: var(--maxWidth-email);
@@ -19,6 +19,11 @@
   flex-grow: 1;
   gap: 1rem;
   margin-bottom: 2rem;
+  transition: opacity 0.3s ease;
+}
+
+.container-email:hover > :not(:hover) {
+  opacity: 0.2;
 }
 
 .title-email {
