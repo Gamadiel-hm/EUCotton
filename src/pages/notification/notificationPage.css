@@ -19,11 +19,11 @@
   flex-grow: 1;
   gap: 1rem;
   margin-bottom: 2rem;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.7s ease;
 }
 
 .container-email:hover > :not(:hover) {
-  opacity: 0.2;
+  opacity: 0.1;
 }
 
 .title-email {

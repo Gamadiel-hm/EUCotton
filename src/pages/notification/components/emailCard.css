@@ -13,27 +13,26 @@
   --colorCard: #000;
 } */
 
-.container-card-email.success {
-  background-color: var(--cardSuccess);
-}
-
-.container-card-email.warning {
+.w {
   background-color: var(--cardWarning);
 }
 
-.container-card-email.info {
+.i {
   background-color: var(--cardInfo);
 }
-.container-card-email.error {
+
+.s {
   background-color: var(--cardError);
 }
 
 .container-card-email {
-  padding: var(--paddingY);
   border-radius: var(--borderRadius-email);
   max-width: var(--maxWidth-card);
   width: 100%;
   margin: var(--marginCenter);
+  background-color: var(--color-card);
+  color: var(--color-text);
+  box-shadow: var(--box-shadow1);
 
   animation: aperture;
   animation-duration: 400ms;
@@ -45,29 +44,35 @@
   flex-wrap: wrap;
   justify-content: space-between;
   border-bottom: var(--border-email);
-  padding: var(--paddingX);
-  margin-bottom: 0.4rem;
+  padding: var(--padding);
+  margin-bottom: 0.6rem;
   align-items: center;
   font-size: clamp(0.9rem, 2.5vw, 1rem);
 }
 
+.header-card-email > p:first-child {
+  font-size: clamp(0.5rem, 2.5vw, 0.9rem);
+}
+
 .header-card-email > p:last-child {
-  font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+  color: #797070;
+  font-size: clamp(0.5rem, 2.5vw, 0.8rem);
 }
 
 .body-card-email {
   display: flex;
   justify-content: space-between;
-  flex: 1;
-  padding-right: 1rem;
+  align-items: center;
+  max-height: 6rem;
+  padding: var(--paddingX);
 }
 
 .body-card-email div:first-child {
   display: flex;
   align-items: center;
-  padding: var(--paddingX);
   gap: 0.7rem;
   font-size: clamp(0.9rem, 2.5vw, 1rem);
+  padding: var(--paddingY);
 }
 
 .body-card-email div > .svg-icon {
@@ -86,15 +91,25 @@
   border-radius: 0.2rem;
   transition: color var(--transition1), box-shadow var(--transition1),
     border-color var(--transition1);
-  border-color: var(--buttonBackground-email);
-  box-shadow: var(--box-shadow1);
+  border-color: var(--color-text);
+  color: var(--color-text);
+  /* box-shadow: var(--box-shadow1); */
+  max-height: 2rem;
 }
 
 .button-actions:hover {
-  color: var(--buttonColor-email);
+  color: var(--color-card);
   box-shadow: none;
-  border-color: var(--buttonColor-email);
+  border-color: var(--color-card);
 }
+
+.blinkerUp {
+  animation: blinker 1.5s linear infinite;
+}
+/* .blinkerUp2 {
+  animation: blinker 4s linear infinite;
+  animation-delay: 2s;
+} */
 
 @media (min-width: 500px) {
   :root {
@@ -114,5 +129,12 @@
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+    transform: scale(1.3);
   }
 }

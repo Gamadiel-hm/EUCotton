@@ -10,29 +10,33 @@
 
   /* Transitions */
   --transition1: 0.3s ease-out;
-  --box-shadow1: 2px 2px 2px 1px var(--buttonBackground-email);
+  --box-shadow1: 2px 6px 8px 0px var(--buttonBackground-email);
   --box-shadow2: 2px 2px 2px 1px var(--buttonColor-email);
+  --box-shadow3: 0px 0px 1px 3px;
 
   /* Email card variable */
   --background-card1: #b3bfc9;
   --background-card2: #d5dce298;
-  --buttonBackground-email: black;
-  --buttonColor-email: #d1c9c9;
-  --paddingY: 0.8rem 0 0.8rem 0;
+  --buttonBackground-email: #eeeeee;
+  --buttonColor-email: var(--background-card1);
+  --paddingY: 0.6rem 0;
   --paddingX: 0 0.8rem 0 0.8rem;
+  --padding: 0.6rem 0.8rem;
 
+  --color-card: #f6f6f6;
+  --color-text: #000000;
   --cardSuccess: #7df895;
   --cardError: #ff5d5d;
-  --cardWarning: #fca73b;
+  --cardWarning: #bb5c02;
   --cardInfo: #3eaef2;
-  --colorCard: #000;
+  --colorCard: #5d5d5d;
 
   /* Email card */
-  --maxWidth-email: 800px;
-  --border-email: 1px solid #0000005d;
+  --maxWidth-email: 500px;
+  --border-email: 1px solid #534f4f5d;
   --padding-container: 0.4rem;
   --maxWidth-card: 400px;
-  --maxHeight-card: 500px;
+  --maxHeight-card: 300px;
   --borderRadius-email: 0.6rem;
   --marginX: 0.4rem 0 0.4rem 0;
   --marginCenter: 0 auto;
@@ -46,13 +50,11 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-style: normal;
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
   width: 100%;
   min-height: 100vh;
   padding-top: 2rem;
-  background-color: #d3cece;
 }
 button {
   outline: none;

@@ -5,6 +5,7 @@ import { NotificationIcon } from "./notificationIcon";
 interface Props extends Notification {
   clickModal: (idNotification: boolean) => void;
   userRef: React.MutableRefObject<number>;
+  indexNotification: number;
 }
 
 export const EmailCard: React.FC<Props> = ({
@@ -16,6 +17,7 @@ export const EmailCard: React.FC<Props> = ({
   isView,
   userCreate,
   messageId,
+  indexNotification,
 }) => {
   const arrayDate = date.toString().split("T");
   const dateClean =
@@ -29,20 +31,24 @@ export const EmailCard: React.FC<Props> = ({
     userRef.current = messageId;
   };
 
-  const statusView = isView ? "🍟" : "🥞";
+  const statusView = isView ? "" : "blinkerUp";
+  //const classBlink = indexNotification % 2 === 0 ? "blinkerUp1" : "blinkerUp2";
+
+  const charString = userCreate.split("")[0].toUpperCase();
+  const joinString = userCreate.slice(1, userCreate.length).toString();
 
   return (
     <>
-      <div className={`container-card-email ${type}`}>
+      <div className={`container-card-email`}>
         <div className="header-card-email">
           <p>
-            {statusView} {userCreate}
+            <strong>{charString + joinString}</strong>
           </p>
           <p>{dateClean}</p>
         </div>
         <div className="body-card-email">
           <div>
-            <div className="svg-icon">
+            <div className={`${statusView}`}>
               <NotificationIcon nameIcon={type} />
             </div>
             <p className="truncate">{sendMessage}</p>
