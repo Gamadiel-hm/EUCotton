@@ -23,13 +23,12 @@
   --paddingX: 0 0.8rem 0 0.8rem;
   --padding: 0.6rem 0.8rem;
 
-  --color-card: #f6f6f6;
+  --color-card: #f0f0f09d;
   --color-text: #000000;
   --cardSuccess: #7df895;
   --cardError: #ff5d5d;
   --cardWarning: #bb5c02;
   --cardInfo: #3eaef2;
-  --colorCard: #5d5d5d;
 
   /* Email card */
   --maxWidth-email: 450px;

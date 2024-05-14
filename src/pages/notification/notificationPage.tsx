@@ -19,6 +19,7 @@ export const NotificationPage: React.FC = () => {
   const { userId, room, roomId } = useParams();
   useFetch(userId ?? "", roomId ?? "", 6, room ?? "");
 
+  console.log(room);
   const { notificationList, newPage } = useNotificationStore((state) => state);
 
   const filter =

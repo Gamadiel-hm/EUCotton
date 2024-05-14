@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
         path: `${Routes_Public.notification}/:userId/:room/:roomId`,
         async lazy() {
           let { NotificationPage } = await import(
-            "../pages/notification/notificationPage"
+            "../pages/notification/NotificationPage"
           );
           return {
             Component: NotificationPage,
