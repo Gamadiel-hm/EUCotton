@@ -4,8 +4,7 @@ import { NotificationIcon } from "./notificationIcon";
 
 interface Props extends Notification {
   clickModal: (idNotification: boolean) => void;
-  userRef: React.MutableRefObject<number>;
-  indexNotification: number;
+  userRef: React.MutableRefObject<Date | null>;
 }
 
 export const EmailCard: React.FC<Props> = ({
@@ -16,8 +15,6 @@ export const EmailCard: React.FC<Props> = ({
   userRef,
   isView,
   userCreate,
-  messageId,
-  indexNotification,
 }) => {
   const arrayDate = date.toString().split("T");
   const dateClean =
@@ -28,7 +25,7 @@ export const EmailCard: React.FC<Props> = ({
 
   const handleClickAction = () => {
     clickModal(true);
-    userRef.current = messageId;
+    userRef.current = date;
   };
 
   const statusView = isView ? "" : "blinkerUp";

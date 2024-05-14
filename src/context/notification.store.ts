@@ -15,7 +15,7 @@ interface StoreNotification {
   notificationList: NotificationList;
   setNotificationAll: (notificationArray: notificationFetch) => void;
   setNotificationOne: (notification: NotificationFetch) => void;
-  setViewNotification: (message: string) => void;
+  setViewNotification: (dateCreate: Date) => void;
 }
 
 export const useNotificationStore = create<StoreNotification>()((set, get) => ({
@@ -34,9 +34,9 @@ export const useNotificationStore = create<StoreNotification>()((set, get) => ({
       notificationList: [notificationAdd, ...state.notificationList],
     }));
   },
-  setViewNotification: (message) => {
+  setViewNotification: (dateCreate) => {
     const searchNotification = get().notificationList.map((item) => {
-      if (item.sendMessage === message) {
+      if (item.date === dateCreate) {
         item.isView = true;
         return item;
       }

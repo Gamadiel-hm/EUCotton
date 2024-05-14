@@ -15,7 +15,7 @@ export const NotificationPage: React.FC = () => {
   const [filterState, setFilterState] = useState<notificationTypeFilter>("all");
   const [searchFilter, setSearchFilter] = useState<string>("");
   const [clickModal, setClickModal] = useState<boolean>(false);
-  const refGetUserIf = useRef<number>(0);
+  const refGetUserIf = useRef<Date>(null);
   const { userId, room, roomId } = useParams();
   useFetch(userId ?? "", roomId ?? "", 6, room ?? "");
 
@@ -36,14 +36,14 @@ export const NotificationPage: React.FC = () => {
         );
 
   const clickNotificationFilter =
-    refGetUserIf.current !== 0
-      ? search.filter((f) => f.messageId === refGetUserIf.current)[0]
+    refGetUserIf.current !== null
+      ? search.filter((f) => f.date === refGetUserIf.current)[0]
       : initialNotification;
 
   fetchView(
     clickNotificationFilter.messageId,
     clickNotificationFilter.userInfoId,
-    clickNotificationFilter.sendMessage,
+    clickNotificationFilter.date,
     refGetUserIf
   );
 
@@ -80,7 +80,6 @@ export const NotificationPage: React.FC = () => {
               messageId={notify.messageId}
               roomAreaId={notify.roomAreaId}
               userCreate={notify.userCreate}
-              indexNotification={index}
               key={index}
             />
           ))}
@@ -88,7 +87,7 @@ export const NotificationPage: React.FC = () => {
       </InfiniteScroll>
       <Modal closeModal={setClickModal} statusModal={clickModal}>
         <>
-          {refGetUserIf.current !== 0 ? (
+          {refGetUserIf.current !== null ? (
             <div className="modal-header">
               <div>{clickNotificationFilter.roomAreaId}</div>
               <div>{clickNotificationFilter.sendMessage}</div>
