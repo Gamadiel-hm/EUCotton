@@ -26,5 +26,5 @@ export const router = createBrowserRouter(
       ]
     }
   ],
-  { basename: process.env.PUBLIC_URL }
+  { basename: import.meta.env.VITE_BASE_URL_ROUTER }
 );

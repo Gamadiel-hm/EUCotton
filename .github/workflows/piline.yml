@@ -103,7 +103,7 @@ jobs:
 
       - name: Build project
         env: 
-          PUBLIC_URL: '/EUCotton/'
+          VITE_BASE_URL_ROUTER: '/EUCotton/'
         run: npm run build
 
       - name: Deploy to GitHub Pages
