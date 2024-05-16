@@ -97,7 +97,7 @@ jobs:
 
       - name: Build project
         env: 
-          PUBLIC_URL: '/EUCotton'
+          PUBLIC_URL: '/EUCotton/'
         run: npm run build
 
       - name: Deploy to GitHub Pages
