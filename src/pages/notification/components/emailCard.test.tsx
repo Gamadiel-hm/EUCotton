@@ -1,9 +1,9 @@
-import { mockNotification } from "../../../test/mockData/notificationListMock";
-import { render, userEvent, screen } from "../../../utils/test-utils";
-import { objectString } from "../helper/convertType";
-import { EmailCard } from "./emailCard";
+import { mockNotification } from '../../../test/mockData/notificationListMock';
+import { render, userEvent, screen } from '../../../utils/test-utils';
+import { objectString } from '../helper/convertType';
+import { EmailCard } from './emailCard';
 
-describe("Component Email Card", () => {
+describe('Component Email Card', () => {
   let containerElement: HTMLElement;
   const userRef = { current: null };
   const userRefModal = { current: false };
@@ -29,16 +29,16 @@ describe("Component Email Card", () => {
     containerElement = container;
   });
 
-  test("should be render a container card with class container-card-email", () => {
-    const className = containerElement.querySelector(".container-card-email");
+  test('should be render a container card with class container-card-email', () => {
+    const className = containerElement.querySelector('.container-card-email');
     expect(className).not.toBeNull();
   });
 
-  test("should be a render structure with card email", () => {
+  test('should be a render structure with card email', () => {
     const array = [
-      ".container-card-email",
-      ".header-card-email",
-      ".body-card-email",
+      '.container-card-email',
+      '.header-card-email',
+      '.body-card-email'
     ];
     array.map((item) => {
       const classInComponent = containerElement.querySelector(item);
@@ -46,23 +46,21 @@ describe("Component Email Card", () => {
     });
   });
 
-  test("should render Button Name Action", () => {
-    const className = containerElement.querySelector(".button-actions");
+  test('should render Button Name Action', () => {
+    const className = containerElement.querySelector('.button-actions');
     expect(className).not.toBeNull();
   });
 
-  test("should click the action button", async () => {
-    await userEvent.click(screen.getByText("Action"));
+  test('should click the action button', async () => {
+    await userEvent.click(screen.getByText('Action'));
     expect(userRefModal.current).toBe(true);
   });
 
-  test("should be render a icon for type notification", () => {
+  test('should be render a icon for type notification', () => {
     const mock = mockNotification.data[0];
 
     for (let i = 1; i <= 4; i++) {
-      let typeNotification;
-
-      typeNotification = objectString[i as keyof typeof objectString];
+      const typeNotification = objectString[i as keyof typeof objectString];
 
       const { container } = render(
         <EmailCard

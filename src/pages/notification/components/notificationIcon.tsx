@@ -1,9 +1,9 @@
-import { ErrorSvg } from "../../../assets/svgIcons/errorSvg";
-import { InfoSvg } from "../../../assets/svgIcons/infoSvg";
-import { SuccessSvg } from "../../../assets/svgIcons/successSvg";
-import { WarningSvg } from "../../../assets/svgIcons/warningSvg";
-import { notificationType } from "../types/notification";
-import { TYPE_NOTIFICATION } from "../types/notification.const";
+import { ErrorSvg } from '../../../assets/svgIcons/errorSvg';
+import { InfoSvg } from '../../../assets/svgIcons/infoSvg';
+import { SuccessSvg } from '../../../assets/svgIcons/successSvg';
+import { WarningSvg } from '../../../assets/svgIcons/warningSvg';
+import { notificationType } from '../types/notification';
+import { TYPE_NOTIFICATION } from '../types/notification.const';
 
 interface Props {
   nameIcon: notificationType;

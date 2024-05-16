@@ -1,27 +1,27 @@
-import { createBrowserRouter } from "react-router-dom";
-import { Routes_Public } from "./routerConst";
+import { createBrowserRouter } from 'react-router-dom';
+import { Routes_Public } from './routerConst';
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     async lazy() {
-      let { default: App } = await import("../App");
+      const { default: App } = await import('../App');
       return {
-        Component: App,
+        Component: App
       };
     },
     children: [
       {
         path: `${Routes_Public.notification}/:userId/:room/:roomId`,
         async lazy() {
-          let { NotificationPage } = await import(
-            "../pages/notification/NotificationPage"
+          const { NotificationPage } = await import(
+            '../pages/notification/notificationPage'
           );
           return {
-            Component: NotificationPage,
+            Component: NotificationPage
           };
-        },
-      },
-    ],
-  },
+        }
+      }
+    ]
+  }
 ]);

@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import { useNotificationStore } from "../../../context/notification.store";
-import { useJoinGroup } from "../../../context/joinGroup.store";
+import { useEffect } from 'react';
+import { useNotificationStore } from '../../../context/notification.store';
+import { useJoinGroup } from '../../../context/joinGroup.store';
 
 export const useFetch = (
   userId: string,
@@ -19,7 +19,7 @@ export const useFetch = (
     fetch(
       import.meta.env.VITE_BASE_URL_SIGNALS +
         userId +
-        "/" +
+        '/' +
         roomId +
         `/options?page=${page}&items=${items}`
     )

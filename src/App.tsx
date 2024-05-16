@@ -8,9 +8,9 @@ import { useJoinGroup } from './context/joinGroup.store';
 
 function App() {
   const setNewNotification = useNotificationStore(
-    state => state.setNotificationOne
+    (state) => state.setNotificationOne
   );
-  const newGRoup = useJoinGroup(state => state.joinGroup);
+  const newGRoup = useJoinGroup((state) => state.joinGroup);
 
   useEffect(() => {
     const conn = new HubConnectionBuilder()
@@ -27,7 +27,7 @@ function App() {
         })
       )
       .then(() => console.log('Join Group'))
-      .catch(error => console.log(error.message));
+      .catch((error) => console.log(error.message));
 
     conn.on('JoinGroupMessage', (message: string) => console.log(message));
     conn.on('groupMessage', (newNotification: NotificationFetch) => {

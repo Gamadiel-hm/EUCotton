@@ -1,12 +1,11 @@
-import { create } from "zustand";
-
+import { create } from 'zustand';
 
 interface storeJoinGroup {
-    joinGroup: string
-    setJoinGroup: (newGroup: string) => void
+  joinGroup: string;
+  setJoinGroup: (newGroup: string) => void;
 }
 
 export const useJoinGroup = create<storeJoinGroup>()((set) => ({
-    joinGroup: "",
-    setJoinGroup: (newGroup) => set({joinGroup: newGroup})
-}))
+  joinGroup: '',
+  setJoinGroup: (newGroup) => set({ joinGroup: newGroup })
+}));

@@ -8,7 +8,7 @@ import { Filters } from './components/filters';
 import { useRef, useState } from 'react';
 import { notificationTypeFilter } from './types/notification';
 import { Modal } from './components/modal';
-import { fetchView } from './components/fetchView';
+import { useFetchView } from './components/fetchView';
 import { initialNotification } from './types/notification.const';
 import { Skeleton } from '../../components/skeleton';
 
@@ -41,7 +41,7 @@ export const NotificationPage: React.FC = () => {
       ? search.filter((f) => f.date === refGetUserIf.current)[0]
       : initialNotification;
 
-  fetchView(
+  useFetchView(
     clickNotificationFilter.messageId,
     clickNotificationFilter.userInfoId,
     clickNotificationFilter.date,
@@ -68,7 +68,7 @@ export const NotificationPage: React.FC = () => {
         loader={<p className='element-infinityScroll'>No more result...</p>}
       >
         <section className='container-email'>
-          {search.length !== 0 ? (
+          {notificationList.length !== 0 ? (
             search.map((notify, index) => (
               <EmailCard
                 date={notify.date}

@@ -10,7 +10,7 @@ interface Props {
 export const Modal: React.FC<Props> = ({
   children,
   closeModal,
-  statusModal,
+  statusModal
 }) => {
   const openModal = statusModal ? 'openModal' : 'closeModal';
 

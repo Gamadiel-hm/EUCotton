@@ -28,14 +28,13 @@ module.exports = {
       'error',
       {
         arrays: 'never',
-        objects: 'always',
+        objects: 'never',
         imports: 'never',
         exports: 'never',
         functions: 'never'
       }
     ],
     'react/prop-types': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'none',
-    'comma-dangle': ['error', 'never']
+    "react-hooks/exhaustive-deps": "off",
   }
 };

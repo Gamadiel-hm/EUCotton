@@ -2,7 +2,7 @@ import {
   fireEvent,
   render,
   screen,
-  userEvent,
+  userEvent
 } from '../../../utils/test-utils';
 import { Modal } from './modal';
 

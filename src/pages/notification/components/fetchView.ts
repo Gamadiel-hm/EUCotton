@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
-import { useNotificationStore } from "../../../context/notification.store";
+import { useEffect, useRef } from 'react';
+import { useNotificationStore } from '../../../context/notification.store';
 
-export const fetchView = (
+export const useFetchView = (
   messageId: number,
   userId: number,
   dateCreate: Date,
@@ -9,15 +9,16 @@ export const fetchView = (
 ) => {
   const { setViewNotification } = useNotificationStore((state) => state);
   const refView = useRef<boolean>(false);
+
   useEffect(() => {
     if (refState.current !== null) {
       fetch(
         import.meta.env.VITE_BASE_URL_API +
-          "messageuserinfo?" +
+          'messageuserinfo?' +
           `messageId=${messageId}` +
-          "&" +
+          '&' +
           `userInfoId=${userId}`,
-        { method: "Put" }
+        { method: 'Put' }
       )
         .then((res) => res.json())
         .then(() => setViewNotification(dateCreate))

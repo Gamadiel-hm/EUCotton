@@ -1,7 +1,7 @@
-import "./filters.css";
-import { notificationTypeFilter } from "../types/notification";
-import { FILTER_NOTIFICATION } from "../types/notification.const";
-import { convertTypeFilter } from "../helper/convertTypeFilter";
+import './filters.css';
+import { notificationTypeFilter } from '../types/notification';
+import { FILTER_NOTIFICATION } from '../types/notification.const';
+import { convertTypeFilter } from '../helper/convertTypeFilter';
 
 interface Props {
   filterState: notificationTypeFilter;
@@ -14,7 +14,7 @@ export const Filters: React.FC<Props> = ({
   filterState,
   filterSet,
   searchState,
-  searchFilter,
+  searchFilter
 }) => {
   const handleChangeFilter = (selectOption: string) => {
     if (selectOption.toUpperCase() in FILTER_NOTIFICATION) {
@@ -29,16 +29,16 @@ export const Filters: React.FC<Props> = ({
   return (
     <>
       <input
-        type="text"
+        type='text'
         value={searchState}
         onChange={(e) => handleSearchNotification(e.currentTarget.value)}
-        placeholder="search notification"
-        className="search-filter"
+        placeholder='search notification'
+        className='search-filter'
       />
       <select
-        className="filter-email"
-        name="Filter"
-        title="type Notification"
+        className='filter-email'
+        name='Filter'
+        title='type Notification'
         value={filterState}
         onChange={(e) => handleChangeFilter(e.currentTarget.value)}
       >
