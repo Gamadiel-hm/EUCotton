@@ -11,5 +11,5 @@ export default defineConfig({
     setupFiles: './src/test/setup.ts',
     environment: 'jsdom'
   },
-  base: 'EUCotton'
+  base: '/EUCotton/'
 });

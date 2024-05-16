@@ -77,6 +77,7 @@ jobs:
         run: npm test
       
   deploy:
+    needs: [test]
     runs-on: ubuntu-22.04
 
     steps:
