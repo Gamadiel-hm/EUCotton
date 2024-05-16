@@ -1,4 +1,5 @@
 import { http, HttpResponse } from "msw";
+import { mockNotification } from "../mockData/notificationListMock";
 
 export const handlers = [
   http.get(
@@ -6,18 +7,7 @@ export const handlers = [
     () => {
       return HttpResponse.json(
         {
-          data: [
-            {
-              messageId: 20,
-              userInfoId: 1,
-              roomAreaId: 1,
-              sendMessage: "Allllllllllllloooooooooooooooooooooooooooooooooooo",
-              type: 4,
-              isView: true,
-              userCreate: "gerencia",
-              date: "2024-05-14T08:36:14.373",
-            },
-          ],
+          ...mockNotification,
         },
         { status: 200 }
       );

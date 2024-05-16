@@ -10,25 +10,24 @@ interface Props {
 export const Modal: React.FC<Props> = ({
   children,
   closeModal,
-  statusModal
+  statusModal,
 }) => {
   const openModal = statusModal ? 'openModal' : 'closeModal';
 
   const stopPropagation = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     e.stopPropagation();
   };
+
   return (
     <>
       <div
+        role='dialog'
         className={`container-modal ${openModal}`}
-        onClick={() => closeModal(false)}>
-        <article
-          className='modal'
-          onClick={e => stopPropagation(e)}>
+        onClick={() => closeModal(false)}
+      >
+        <article className='modal' onClick={(e) => stopPropagation(e)}>
           {children}
-          <div
-            className='close-container'
-            onClick={() => closeModal(false)}>
+          <div className='close-container' onClick={() => closeModal(false)}>
             <div className='leftRight'></div>
             <div className='rightLeft'></div>
             <label className='close'>close</label>

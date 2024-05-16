@@ -45,7 +45,7 @@ export const EmailCard: React.FC<Props> = ({
         </div>
         <div className="body-card-email">
           <div>
-            <div className={`${statusView}`}>
+            <div className={`${statusView} ${type}`}>
               <NotificationIcon nameIcon={type} />
             </div>
             <p className="truncate">{sendMessage}</p>

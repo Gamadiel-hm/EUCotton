@@ -36,6 +36,7 @@ export const Filters: React.FC<Props> = ({
         className="search-filter"
       />
       <select
+        className="filter-email"
         name="Filter"
         title="type Notification"
         value={filterState}

@@ -1,6 +1,8 @@
+import { mockNotification } from "../../test/mockData/notificationListMock";
 import { render, screen, waitFor } from "../../utils/test-utils";
 import { NotificationPage } from "./NotificationPage";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
+import { convertDate } from "./helper/convertDate";
 
 describe("Test Notification Page", () => {
   test("should be a title Page Notification", () => {
@@ -20,9 +22,14 @@ describe("Test Notification Page", () => {
       </MemoryRouter>
     );
 
-    //expect(screen.getByText("Notifications Today")).toBeDefined();
     await waitFor(() => {
-      expect(screen.getAllByText("Gerencia")).toBeDefined();
+      const numItem = mockNotification.data.length;
+      const getDate = mockNotification.data.map((item) =>
+        convertDate.convertString(item.date.toISOString())
+      );
+      getDate.forEach((dateView) => expect(dateView).toBe(dateView));
+      const numItems = screen.getAllByText("Gerencia");
+      expect(numItems.length).toBe(numItem);
     });
   });
 });
