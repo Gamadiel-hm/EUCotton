@@ -34,14 +34,15 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          cache: 'npm'
           node-version: "20.12.1"
 
       - name: Clean dependencies
-        run: rm -rf node_modules
+        run: |
+          rm -rf node_modules
+          rm -f package-lock.json
 
       - name: Install dependencies
-        run: npm clean-install
+        run: npm install
 
       - name: Build
         run: npm run build
