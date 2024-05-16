@@ -1,21 +1,21 @@
-import { mockNotification } from "../../test/mockData/notificationListMock";
-import { render, screen, waitFor } from "../../utils/test-utils";
-import { NotificationPage } from "./NotificationPage";
-import { MemoryRouter, Route, Routes } from "react-router-dom";
-import { convertDate } from "./helper/convertDate";
+import { mockNotification } from '../../test/mockData/notificationListMock';
+import { render, screen, waitFor } from '../../utils/test-utils';
+import { NotificationPage } from './notificationPage';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { convertDate } from './helper/convertDate';
 
-describe("Test Notification Page", () => {
-  test("should be a title Page Notification", () => {
+describe('Test Notification Page', () => {
+  test('should be a title Page Notification', () => {
     render(<NotificationPage />);
-    expect(screen.getByText("Notifications Today")).toBeDefined();
+    expect(screen.getByText('Notifications Today')).toBeDefined();
   });
 
-  test("should be a card notification", async () => {
+  test('should be a card notification', async () => {
     render(
-      <MemoryRouter initialEntries={["/notification/1/gerencia/1"]}>
+      <MemoryRouter initialEntries={['/notification/1/gerencia/1']}>
         <Routes>
           <Route
-            path="/notification/:userId/:room/:roomId"
+            path='/notification/:userId/:room/:roomId'
             element={<NotificationPage />}
           />
         </Routes>
@@ -28,7 +28,7 @@ describe("Test Notification Page", () => {
         convertDate.convertString(item.date.toISOString())
       );
       getDate.forEach((dateView) => expect(dateView).toBe(dateView));
-      const numItems = screen.getAllByText("Gerencia");
+      const numItems = screen.getAllByText('Gerencia');
       expect(numItems.length).toBe(numItem);
     });
   });
