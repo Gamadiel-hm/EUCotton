@@ -96,11 +96,12 @@ jobs:
         run: npm i
 
       - name: Build project
+        env: 
+          PUBLIC_URL: '/EUCotton'
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          ACCESS_TOKEN: ${{ secrets.ACTION_DEPLOY_KEY }}
-          BRANCH: gh-pages
-          FOLDER: dist
+          github_token: ${{ secrets.ACTION_DEPLOY_KEY }}
+          publish_dir: ./dist
