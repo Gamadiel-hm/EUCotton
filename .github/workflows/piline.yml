@@ -2,11 +2,12 @@ name: Deploy-react-app
 
 on:
   push:
-    branches:
-      - "main"
+    branches: [main]
+    
 jobs:
-  build:
-    runs-on: ubuntu-latest
+
+  lint:
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout
@@ -17,9 +18,50 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20.12.1
+          node-version: "20.12.1"
 
       - name: install Dev
-        run: npm i
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          cache: 'npm'
+          node-version: "20.12.1"
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
+
+  test:
+    needs: [lint, build]
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          cache: 'npm'
+          node-version: "20.12.1"
+      - name: Install dependencies
+        run: npm ci
+      - uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
+      - name: Test
+        run: npm test
       
   
