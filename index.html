@@ -15,6 +15,11 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+  <script>
+    const path = window.location.pathname;
+    const redirectUrl = path === '/' ? import.meta.env.VITE_BASE_URL_ROUTER : path;
+    window.location.replace(`/${redirectUrl}`);
+  </script>
 </body>
 
 </html>
