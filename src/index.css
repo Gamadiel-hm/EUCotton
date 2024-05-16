@@ -32,7 +32,7 @@
 
   /* Email card */
   --maxWidth-email: 450px;
-  --border-email: 1px solid #534f4f5d;
+  --border-email: 1px solid #c4bbbb5d;
   --padding-container: 0.4rem;
   --maxWidth-card: 400px;
   --maxHeight-card: 300px;
@@ -49,7 +49,7 @@
 }
 
 body {
-  font-family: "Noto Sans", sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   font-optical-sizing: auto;
   width: 100%;
   min-height: 100vh;

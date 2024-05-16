@@ -10,6 +10,7 @@ import { notificationTypeFilter } from './types/notification';
 import { Modal } from './components/modal';
 import { fetchView } from './components/fetchView';
 import { initialNotification } from './types/notification.const';
+import { Skeleton } from '../../components/skeleton';
 
 export const NotificationPage: React.FC = () => {
   const [filterState, setFilterState] = useState<notificationTypeFilter>('all');
@@ -67,22 +68,26 @@ export const NotificationPage: React.FC = () => {
         loader={<p className='element-infinityScroll'>No more result...</p>}
       >
         <section className='container-email'>
-          {search.map((notify, index) => (
-            <EmailCard
-              date={notify.date}
-              //group={room}
-              sendMessage={notify.sendMessage}
-              userInfoId={notify.userInfoId}
-              type={notify.type}
-              clickModal={setClickModal}
-              userRef={refGetUserIf}
-              isView={notify.isView}
-              messageId={notify.messageId}
-              roomAreaId={notify.roomAreaId}
-              userCreate={notify.userCreate}
-              key={index}
-            />
-          ))}
+          {search.length !== 0 ? (
+            search.map((notify, index) => (
+              <EmailCard
+                date={notify.date}
+                //group={room}
+                sendMessage={notify.sendMessage}
+                userInfoId={notify.userInfoId}
+                type={notify.type}
+                clickModal={setClickModal}
+                userRef={refGetUserIf}
+                isView={notify.isView}
+                messageId={notify.messageId}
+                roomAreaId={notify.roomAreaId}
+                userCreate={notify.userCreate}
+                key={index}
+              />
+            ))
+          ) : (
+            <Skeleton />
+          )}
         </section>
       </InfiniteScroll>
       <Modal closeModal={setClickModal} statusModal={clickModal}>

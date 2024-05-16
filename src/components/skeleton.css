@@ -1,0 +1,71 @@
+.card-skeleton {
+  max-width: var(--maxWidth-card);
+  height: 7rem;
+  border: var(--border-email);
+  box-shadow: var(--box-shadow1);
+  border-radius: 0.45rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header-skelton {
+  border-bottom: 1px solid var(--buttonBackground-email);
+  max-height: 3rem;
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  padding: var(--paddingY);
+}
+
+.card-header-skelton div {
+  width: 40%;
+  border-radius: 0.25rem;
+  background-image: linear-gradient(
+    120deg,
+    #ececec 50%,
+    #fafafa 60%,
+    #fafafa 61%,
+    #ececec 70%
+  );
+  background-position: 100%;
+  background-size: 200%;
+  animation: waves 1.6s linear infinite;
+}
+
+.body-skeleton {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  padding: var(--padding);
+}
+
+.body-skeleton div {
+  width: 5rem;
+  border-radius: 0.25rem;
+  background-image: linear-gradient(
+    120deg,
+    #ececec 50%,
+    #fafafa 60%,
+    #fafafa 61%,
+    #ececec 70%
+  );
+  background-position: 100%;
+  background-size: 200%;
+}
+
+.body-skeleton div:nth-child(2) {
+  flex-grow: 2;
+  animation: waves 1.6s linear infinite;
+}
+
+.body-skeleton div:nth-child(odd) {
+  animation: waves 1.3s linear infinite;
+}
+
+@keyframes waves {
+  100% {
+    background-position: -100% 0;
+  }
+}
