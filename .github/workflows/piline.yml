@@ -61,7 +61,6 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          cache: 'npm'
           node-version: "20.12.1"
       - name: Install dependencies
         run: npm install
