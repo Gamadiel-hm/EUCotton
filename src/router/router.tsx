@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { Routes_Public } from './routerConst';
+import ErrorPage from '../ErrorPage';
 
 export const router = createBrowserRouter(
   [
@@ -11,6 +12,7 @@ export const router = createBrowserRouter(
           Component: App
         };
       },
+      errorElement: <ErrorPage />,
       children: [
         {
           path: `${Routes_Public.notification}/:userId/:room/:roomId`,
