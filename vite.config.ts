@@ -11,5 +11,5 @@ export default defineConfig({
     setupFiles: './src/test/setup.ts',
     environment: 'jsdom'
   },
-  base: 'https://github.com/Gamadiel-hm/EUCotton/'
+  base: 'https://gamadiel-hm.github.io/EUCotton/'
 });
