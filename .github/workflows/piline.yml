@@ -2,10 +2,9 @@ name: Deploy-react-app
 
 on:
   push:
-    branches: [main]
-    
-jobs:
+    branches: [deploy-github-pages]
 
+jobs:
   lint:
     runs-on: ubuntu-22.04
 
@@ -18,7 +17,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20.12.1"
+          node-version: '20.12.1'
 
       - name: install Dev
         run: npm ci
@@ -34,7 +33,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20.12.1"
+          node-version: '20.12.1'
 
       - name: Clean dependencies
         run: |
@@ -61,12 +60,12 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: "20.12.1"
+          node-version: '20.12.1'
       - name: Clean dependencies
         run: |
           rm -rf node_modules
           rm -f package-lock.json
-          
+
       - name: Install dependencies
         run: npm install
       - uses: actions/download-artifact@v2
@@ -75,7 +74,7 @@ jobs:
           path: dist
       - name: Test
         run: npm test
-      
+
   deploy:
     needs: [test]
     runs-on: ubuntu-22.04
@@ -86,7 +85,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: "20.12.1"
+          node-version: '20.12.1'
       - name: Clean dependencies
         run: |
           rm -rf node_modules
@@ -102,7 +101,7 @@ jobs:
           path: dist
 
       - name: Build project
-        env: 
+        env:
           VITE_BASE_URL_ROUTER: '/EUCotton/'
         run: npm run build
 
