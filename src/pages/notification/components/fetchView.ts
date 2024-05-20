@@ -7,7 +7,7 @@ export const useFetchView = (
   dateCreate: Date,
   refState: React.RefObject<Date>
 ) => {
-  const { setViewNotification } = useNotificationStore((state) => state);
+  const { setViewNotification, setFullMessage } = useNotificationStore((state) => state);
   const refView = useRef<boolean>(false);
 
   useEffect(() => {
@@ -21,7 +21,13 @@ export const useFetchView = (
         { method: 'Put' }
       )
         .then((res) => res.json())
-        .then(() => setViewNotification(dateCreate))
+        .then(() => {
+          setViewNotification(dateCreate)
+          fetch(import.meta.env.VITE_BASE_URL_SIGNALS + `fullmassege?idMessage=${messageId}`)
+            .then(res => res.json())
+            .then(data => setFullMessage(data.data))
+            .catch(() => {})
+        })
         .catch((error) => console.log(error));
     }
   }, [refState.current]);

@@ -12,6 +12,8 @@ import {
 interface StoreNotification {
   page: number;
   newPage: () => void;
+  fullMessage: string;
+  setFullMessage: (message: string) => void;
   notificationList: NotificationList;
   setNotificationAll: (notificationArray: notificationFetch) => void;
   setNotificationOne: (notification: NotificationFetch) => void;
@@ -20,6 +22,8 @@ interface StoreNotification {
 
 export const useNotificationStore = create<StoreNotification>()((set, get) => ({
   page: 1,
+  fullMessage: "",
+  setFullMessage: (message: string) => set(() => ({fullMessage: message})),
   newPage: () => set((state) => ({ page: state.page + 1 })),
   notificationList: [],
   setNotificationAll: (notificationArray: notificationFetch) => {

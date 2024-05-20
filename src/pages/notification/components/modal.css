@@ -27,6 +27,24 @@
   position: relative;
 }
 
+.modal-header {
+  padding: var(--padding);
+}
+
+.modal-header div {
+  margin-bottom: 1rem;
+}
+
+.modal-header button {
+  font-size: 1rem;
+  transition: border var(--transition1), color var(--transition1);
+}
+
+.modal-header button:hover {
+  border: var(--border-email);
+  color: var(--color-card);
+}
+
 .closeModal {
   opacity: 0;
   z-index: -10;

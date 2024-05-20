@@ -55,7 +55,7 @@ export const EmailCard: React.FC<Props> = ({
             className='button-actions'
             onClick={() => handleClickAction()}
           >
-            Action
+            Ver
           </button>
         </div>
       </div>

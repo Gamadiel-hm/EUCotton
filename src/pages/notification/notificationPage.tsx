@@ -20,8 +20,8 @@ export const NotificationPage: React.FC = () => {
   const { userId, room, roomId } = useParams();
   useFetch(userId ?? '', roomId ?? '', 6, room ?? '');
 
-  const { notificationList, newPage } = useNotificationStore((state) => state);
-
+  const { notificationList, newPage, fullMessage } = useNotificationStore((state) => state);
+  
   const filter =
     filterState === 'all'
       ? notificationList
@@ -50,8 +50,6 @@ export const NotificationPage: React.FC = () => {
 
   return (
     <>
-      <h1 className='title-email'>Notifications Today</h1>
-
       <section className='filters'>
         <Filters
           filterState={filterState}
@@ -90,14 +88,17 @@ export const NotificationPage: React.FC = () => {
           )}
         </section>
       </InfiniteScroll>
-      <Modal closeModal={setClickModal} statusModal={clickModal}>
+      <Modal closeModal={setClickModal} statusModal={clickModal} userRef={refGetUserIf}>
         <>
           {refGetUserIf.current !== null ? (
             <div className='modal-header'>
-              <div>{clickNotificationFilter.roomAreaId}</div>
-              <div>{clickNotificationFilter.sendMessage}</div>
-              <div>{clickNotificationFilter.isView}</div>
-              <div>{clickNotificationFilter.userCreate}</div>
+              <div>{fullMessage}</div>
+              <button
+            type='button'
+            className='button-actions2'
+          >
+            Ir
+          </button>
             </div>
           ) : (
             <></>
