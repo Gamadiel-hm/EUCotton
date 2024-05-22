@@ -51,12 +51,12 @@
 }
 
 .header-card-email > p:first-child {
-  font-size: clamp(0.5rem, 2.5vw, 0.9rem);
+  font-size: clamp(0.8rem, 2.5vw, 1.1rem);
 }
 
 .header-card-email > p:last-child {
   color: #797070;
-  font-size: clamp(0.5rem, 2.5vw, 0.8rem);
+  font-size: clamp(0.7rem, 2.5vw, 0.8rem);
 }
 
 .body-card-email {

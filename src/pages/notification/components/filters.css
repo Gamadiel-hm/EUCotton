@@ -1,15 +1,16 @@
 .filters {
   display: flex;
   flex-grow: 1;
-  gap: 0.3rem;
+  gap: 1rem;
 }
 
 .filters select {
   width: 100%;
   padding: var(--padding-container);
-  font-size: clamp(0.5rem, 2vw, 1rem);
+  font-size: clamp(0.8rem, 2vw, 1rem);
   border-radius: var(--borderRadius-email);
   background: none;
+  flex-shrink: 1;
   color: var(--color);
   outline: none;
 }
@@ -27,4 +28,5 @@
   border-radius: var(--borderRadius-email);
   outline: none;
   padding-left: 0.35rem;
+  width: 100%;
 }

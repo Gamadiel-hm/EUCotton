@@ -8,6 +8,7 @@ import { Modal } from './modal';
 
 describe('Component Modal', () => {
   let closeModal: boolean = true;
+  const userRef = { current: null };
   const handleCloseModal = (set: boolean) => {
     closeModal = set;
   };
@@ -15,7 +16,7 @@ describe('Component Modal', () => {
 
   beforeEach(() => {
     const { container } = render(
-      <Modal closeModal={handleCloseModal} statusModal={closeModal}>
+      <Modal closeModal={handleCloseModal} statusModal={closeModal} userRef={userRef} >
         <>
           <p>Context modal</p>
         </>

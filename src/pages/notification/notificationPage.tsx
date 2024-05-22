@@ -97,7 +97,7 @@ export const NotificationPage: React.FC = () => {
             type='button'
             className='button-actions2'
           >
-            Ir
+            Abrir
           </button>
             </div>
           ) : (

@@ -32,7 +32,7 @@ export const Filters: React.FC<Props> = ({
         type='text'
         value={searchState}
         onChange={(e) => handleSearchNotification(e.currentTarget.value)}
-        placeholder='search notification'
+        placeholder='Buscar mensaje'
         className='search-filter'
       />
       <select
@@ -42,10 +42,10 @@ export const Filters: React.FC<Props> = ({
         value={filterState}
         onChange={(e) => handleChangeFilter(e.currentTarget.value)}
       >
-        <option value={FILTER_NOTIFICATION.ALL}>Filter All</option>
-        <option value={FILTER_NOTIFICATION.SUCCESS}>Success</option>
+        <option value={FILTER_NOTIFICATION.ALL}>Mostrar todos</option>
+        <option value={FILTER_NOTIFICATION.SUCCESS}>Completos</option>
         <option value={FILTER_NOTIFICATION.ERROR}>Error</option>
-        <option value={FILTER_NOTIFICATION.WARNING}>Warning</option>
+        <option value={FILTER_NOTIFICATION.WARNING}>Advertencia</option>
         <option value={FILTER_NOTIFICATION.INFO}>Info</option>
       </select>
     </>

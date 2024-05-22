@@ -17,7 +17,8 @@
 }
 
 .modal {
-  color: var(--colorModal);
+  background-color: var(--colorModal);
+  
   max-width: 400px;
   padding: 2rem 1rem;
   width: 100%;
@@ -38,6 +39,8 @@
 .modal-header button {
   font-size: 1rem;
   transition: border var(--transition1), color var(--transition1);
+  background-color: #0E46A3;
+  padding: .4rem .8rem;
 }
 
 .modal-header button:hover {
@@ -71,7 +74,7 @@
 
 .leftRight {
   height: 4px;
-  width: 30px;
+  width: 20px;
   position: absolute;
   margin-top: 24px;
   background-color: var(--softOrange);
@@ -82,7 +85,7 @@
 
 .rightLeft {
   height: 4px;
-  width: 30px;
+  width: 20px;
   position: absolute;
   margin-top: 24px;
   background-color: var(--softOrange);
@@ -92,7 +95,7 @@
 }
 
 .close-container > label {
-  color: var(--colorModal);
+  color: var(--tomatoRed);
   font-family: Helvetica, Arial, sans-serif;
   font-size: 0.6em;
   text-transform: uppercase;
