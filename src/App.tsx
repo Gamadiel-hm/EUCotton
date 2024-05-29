@@ -26,7 +26,7 @@ function App() {
           Message: 'Join Group'
         })
       )
-      .then(() => console.log('Join Group'))
+      .then(() => {})
       .catch((error) => console.log(error.message));
 
     conn.on('JoinGroupMessage', (message: string) => console.log(message));

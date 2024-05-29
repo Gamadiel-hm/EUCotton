@@ -52,6 +52,14 @@
 
 .header-card-email > p:first-child {
   font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+  display: flex;
+  gap: .4rem;
+  align-items: center;
+}
+
+.header-card-email > p span {
+  color: #797070;
+  font-size: clamp(0.7rem, 2.5vw, 0.8rem);
 }
 
 .header-card-email > p:last-child {

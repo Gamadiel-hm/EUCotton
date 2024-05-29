@@ -63,7 +63,7 @@ export const NotificationPage: React.FC = () => {
         dataLength={notificationList.length}
         next={newPage}
         hasMore={true}
-        loader={<p className='element-infinityScroll'>No more result...</p>}
+        loader={<p className='element-infinityScroll'>No hay más mensajes...</p>}
       >
         <section className='container-email'>
           {notificationList.length !== 0 ? (

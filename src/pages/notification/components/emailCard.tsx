@@ -40,6 +40,7 @@ export const EmailCard: React.FC<Props> = ({
         <div className='header-card-email'>
           <p>
             <strong>{charString + joinString}</strong>
+            <span>- {statusView ? "" : "Mensaje Leido"}</span>
           </p>
           <p>{dateClean}</p>
         </div>
